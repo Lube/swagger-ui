@@ -7,6 +7,7 @@ import serializeError from "serialize-error"
 
 export const UPDATE_SPEC = "spec_update_spec"
 export const UPDATE_URL = "spec_update_url"
+export const UPDATE_URLS = "spec_update_urls"
 export const UPDATE_JSON = "spec_update_json"
 export const UPDATE_PARAM = "spec_update_param"
 export const VALIDATE_PARAMS = "spec_validate_param"
@@ -47,6 +48,10 @@ export function updateResolved(spec) {
 
 export function updateUrl(url) {
   return {type: UPDATE_URL, payload: url}
+}
+
+export function updateUrls(urls) {
+  return {type: UPDATE_URLS, payload: urls}
 }
 
 export function updateJsonSpec(json) {

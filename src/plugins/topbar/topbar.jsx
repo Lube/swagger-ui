@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react"
 
+import Switcher from "./switcher.jsx"
 //import "./topbar.less"
 import Logo from "./logo_small.png"
 
@@ -7,7 +8,7 @@ export default class Topbar extends React.Component {
 
   constructor(props, context) {
     super(props, context)
-    this.state = { url: props.specSelectors.url() }
+    this.state = { url: props.specSelectors.url(), urls: props.specSelectors.urls() }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -15,8 +16,8 @@ export default class Topbar extends React.Component {
   }
 
   onUrlChange =(e)=> {
-    let {target: {value}} = e
-    this.setState({url: value})
+    let {target: {newValue}} = e
+    this.setState({url: newValue}, () => this.downloadUrl(e))
   }
 
   downloadUrl = (e) => {
@@ -44,6 +45,9 @@ export default class Topbar extends React.Component {
                 <img height="30" width="30" src={ Logo } alt="Swagger UX"/>
                 <span>swagger</span>
               </Link>
+              <form className="download-url-wrapper" onSubmit={this.downloadUrl}>
+                <Switcher className="download-url-input" options={this.state.urls} onChange={ this.onUrlChange } />
+              </form>
               <form className="download-url-wrapper" onSubmit={this.downloadUrl}>
                 <input className="download-url-input" type="text" onChange={ this.onUrlChange } value={this.state.url} disabled={isLoading} style={inputStyle} />
                 <Button className="download-url-button" onClick={ this.downloadUrl }>Explore</Button>

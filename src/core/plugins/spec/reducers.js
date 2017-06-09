@@ -5,6 +5,7 @@ import win from "../../window"
 import {
 	UPDATE_SPEC,
   UPDATE_URL,
+  UPDATE_URLS,
   UPDATE_JSON,
   UPDATE_PARAM,
   VALIDATE_PARAMS,
@@ -28,6 +29,10 @@ export default {
 
   [UPDATE_URL]: (state, action) => {
     return state.set("url", action.payload+"")
+  },
+
+  [UPDATE_URLS]: (state, action) => {
+    return state.set("urls", action.payload)
   },
 
   [UPDATE_JSON]: (state, action) => {

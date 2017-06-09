@@ -97,6 +97,7 @@ module.exports = function SwaggerUI(opts) {
         system.specActions.updateLoadingStatus("success")
         system.specActions.updateSpec(JSON.stringify(mergedConfig.spec))
       } else if (system.specActions.download && mergedConfig.url) {
+        system.specActions.updateUrls(mergedConfig.urls)
         system.specActions.updateUrl(mergedConfig.url)
         system.specActions.download(mergedConfig.url)
       }

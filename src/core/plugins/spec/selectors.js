@@ -20,6 +20,11 @@ export const url = createSelector(
   spec => spec.get("url")
 )
 
+export const urls = createSelector(
+  state,
+  spec => spec.get("urls")
+)
+
 export const specStr = createSelector(
   state,
   spec => spec.get("spec") || ""

@@ -1,14 +1,22 @@
 .topbar
 {
+
     padding: 8px 30px;
 
     background-color: #89bf04;
+
+    .switcher-input
+    {
+        width: 20em
+    }
+
     .topbar-wrapper
     {
         display: flex;
 
         align-items: center;
     }
+
     a
     {
         font-size: 1.5em;
